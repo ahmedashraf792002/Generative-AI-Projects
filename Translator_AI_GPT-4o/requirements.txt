@@ -1,0 +1,4 @@
+streamlit
+langchain
+langchain-openai
+g4f[all]
