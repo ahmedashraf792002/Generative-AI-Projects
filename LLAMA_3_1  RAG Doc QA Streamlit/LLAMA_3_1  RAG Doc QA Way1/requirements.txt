@@ -1,0 +1,10 @@
+streamlit
+langchain-community
+langchain-text-splitters
+langchain-groq
+unstructured
+unstructured[pdf]
+faiss-cpu
+transformers
+sentence-transformers
+nltk
