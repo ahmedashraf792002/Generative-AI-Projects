@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Playlist Chatbot</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">YT</div>
+      <div>
+        <h1>YouTube Playlist Chatbot</h1>
+        <p>Study from playlist transcripts</p>
+      </div>
+    </div>
+
+    <section class="panel">
+      <label class="label" for="playlistUrl">Playlist URL</label>
+      <textarea
+        id="playlistUrl"
+        class="playlist-input"
+        placeholder="https://www.youtube.com/playlist?list=..."
+        rows="3"
+      ></textarea>
+
+      <label class="reset-row">
+        <input type="checkbox" id="resetChat" checked />
+        <span>Reset chat when playlist changes</span>
+      </label>
+
+      <button class="primary-btn" id="analyzeBtn" type="button">
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="analyzeBtnText">Analyze Playlist</span>
+      </button>
+
+      <div class="status-card" id="statusCard" hidden>
+        <div class="status-line" id="statusText">🔄 Analyzing playlist...</div>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel suggestions-panel">
+      <div class="panel-heading">
+        <span>Suggested Questions</span>
+      </div>
+      <div class="suggestions-list" id="suggestionsList">
+        <p class="empty-state">Analyze a playlist to generate study questions.</p>
+      </div>
+    </section>
+
+    <button class="secondary-btn" id="clearChatBtn" type="button">Clear Chat</button>
+  </aside>
+
+  <main class="chat-shell">
+    <header class="chat-header">
+      <button class="icon-btn mobile-only" id="menuBtn" type="button" aria-label="Open sidebar">☰</button>
+      <div>
+        <h2>YouTube Playlist Chatbot</h2>
+        <p id="headerSubtitle">Analyze a playlist, then ask questions from its content only.</p>
+      </div>
+      <span class="ready-pill" id="readyPill">Not ready</span>
+    </header>
+
+    <section class="chat-window" id="chatWindow" aria-live="polite">
+      <div class="welcome" id="welcome">
+        <div class="welcome-mark">YT</div>
+        <h3>Ready when your playlist is.</h3>
+        <p>Paste a YouTube playlist URL, analyze transcripts, then ask study questions grounded in the videos.</p>
+      </div>
+      <div class="messages" id="messages"></div>
+    </section>
+
+    <form class="composer" id="questionForm">
+      <textarea
+        id="questionInput"
+        class="question-input"
+        placeholder="Ask about the analyzed playlist..."
+        rows="1"
+        disabled
+      ></textarea>
+      <button class="send-btn" id="sendBtn" type="submit" disabled aria-label="Send question">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M22 2 11 13" />
+          <path d="m22 2-7 20-4-9-9-4 20-7Z" />
+        </svg>
+      </button>
+    </form>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

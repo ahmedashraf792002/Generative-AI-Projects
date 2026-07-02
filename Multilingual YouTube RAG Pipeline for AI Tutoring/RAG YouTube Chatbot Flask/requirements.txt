@@ -1,0 +1,13 @@
+flask
+youtube-transcript-api
+yt-dlp
+langchain
+langchain-community
+langchain-huggingface
+langchain-text-splitters
+transformers
+accelerate
+torch
+huggingface_hub
+sentence-transformers
+faiss-cpu
