@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Screening Report — Machine Learning Engineer (Mid-Level)</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #0f1117;
+  color: #e2e8f0;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.page-header {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border-bottom: 1px solid #334155;
+  padding: 2rem 2rem 1.5rem;
+  text-align: center;
+}
+.page-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #f8fafc;
+}
+.page-header h1 span { color: #60a5fa; }
+.page-header .meta {
+  color: #94a3b8;
+  font-size: .85rem;
+  margin-top: .5rem;
+}
+
+/* ── Stats ── */
+.stats-bar {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 1.5rem 2rem;
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+}
+.stat {
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: .9rem 1.4rem;
+  text-align: center;
+  min-width: 100px;
+}
+.stat-num { display: block; font-size: 1.9rem; font-weight: 800; color: #60a5fa; }
+.stat-lbl { display: block; font-size: .72rem; color: #64748b; text-transform: uppercase; letter-spacing: .07em; margin-top: .15rem; }
+
+/* ── Filters ── */
+.filters {
+  display: flex;
+  gap: .6rem;
+  flex-wrap: wrap;
+  padding: 1.2rem 2rem;
+  background: #1a2236;
+  border-bottom: 1px solid #334155;
+  justify-content: center;
+}
+.filter-btn {
+  padding: .45rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid #334155;
+  background: transparent;
+  color: #94a3b8;
+  font-size: .83rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all .18s;
+}
+.filter-btn:hover, .filter-btn.active {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+
+/* ── Cards container ── */
+.cards { padding: 2rem; max-width: 920px; margin: 0 auto; }
+
+/* ── Card ── */
+.card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  margin-bottom: 1.6rem;
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+.card:hover {
+  box-shadow: 0 8px 32px rgba(0,0,0,.4);
+  transform: translateY(-2px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.3rem 1.5rem;
+  border-bottom: 1px solid #334155;
+  flex-wrap: wrap;
+  background: #0f172a;
+}
+.rank {
+  background: #334155;
+  color: #e2e8f0;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.cinfo { flex: 1; min-width: 140px; }
+.cname { font-size: 1.2rem; font-weight: 700; color: #f1f5f9; }
+.cpos  { font-size: .78rem; color: #64748b; margin-top: .2rem; }
+.badges {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+
+.score-ring {
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: 3px solid;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.snum   { font-size: 1.2rem; font-weight: 800; line-height: 1; }
+.sdenom { font-size: .6rem; color: #94a3b8; }
+
+.vtag {
+  font-size: .78rem; font-weight: 700;
+  padding: .28rem .7rem;
+  border-radius: 999px;
+  border: 1.5px solid;
+}
+.rec-tag {
+  font-size: .78rem; font-weight: 700;
+  padding: .28rem .7rem;
+  border-radius: 999px;
+}
+.qual-tag {
+  font-size: .76rem; font-weight: 600;
+  padding: .28rem .7rem;
+  border-radius: 999px;
+}
+.qual-yes { background: #14532d22; color: #4ade80; border: 1px solid #166534; }
+.qual-no  { background: #7f1d1d22; color: #f87171; border: 1px solid #991b1b; }
+
+/* ── Breakdown ── */
+.breakdown {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+.bar-row {
+  display: flex; align-items: center; gap: .7rem;
+  margin-bottom: .5rem;
+}
+.bar-lbl   { font-size: .77rem; color: #64748b; width: 120px; flex-shrink: 0; }
+.bar-track {
+  flex: 1; height: 7px;
+  background: #334155;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar-fill  { height: 100%; border-radius: 999px; transition: width .5s ease; }
+.bar-val   { font-size: .75rem; font-weight: 600; color: #94a3b8; width: 36px; text-align: right; }
+
+/* ── Details ── */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+@media (max-width: 560px) { .detail-grid { grid-template-columns: 1fr; } }
+
+.dblock h4 { font-size: .82rem; font-weight: 700; color: #cbd5e1; margin-bottom: .45rem; }
+.dblock ul, .dblock ol { padding-left: 1.15rem; }
+.dblock li { font-size: .82rem; color: #94a3b8; line-height: 1.5; margin-bottom: .2rem; }
+
+.full { padding: 1rem 1.5rem; border-bottom: 1px solid #334155; }
+
+.notes {
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+.notes h4 { font-size: .82rem; font-weight: 700; color: #cbd5e1; margin-bottom: .4rem; }
+.notes p  { font-size: .84rem; color: #94a3b8; line-height: 1.65; }
+
+/* ── Card footer ── */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .9rem 1.5rem;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+.email-lbl { font-size: .82rem; color: #64748b; }
+.email-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: #2563eb;
+  color: #fff;
+  border-radius: 8px;
+  padding: .5rem 1.1rem;
+  font-size: .86rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .18s;
+}
+.email-btn:hover { background: #1d4ed8; }
+
+/* ── Footer ── */
+.page-footer {
+  text-align: center;
+  color: #475569;
+  font-size: .76rem;
+  padding: 2rem;
+  border-top: 1px solid #334155;
+  margin-top: 1rem;
+}
+
+/* ── Hidden ── */
+.card.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>🧑‍💼 <span>TechStartup Egypt</span> — Resume Screening</h1>
+  <div class="meta">Position: <strong style="color:#e2e8f0">Machine Learning Engineer (Mid-Level)</strong> &nbsp;·&nbsp; 2026-07-01 00:23</div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Screened</span></div>
+  <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Qualified ≥60</span></div>
+  <div class="stat"><span class="stat-num" style="color:#4ade80">1</span><span class="stat-lbl">Accepted</span></div>
+  <div class="stat"><span class="stat-num" style="color:#facc15">2</span><span class="stat-lbl">On Hold</span></div>
+  <div class="stat"><span class="stat-num" style="color:#f87171">0</span><span class="stat-lbl">Rejected</span></div>
+  <div class="stat"><span class="stat-num" style="color:#a78bfa">78</span><span class="stat-lbl">Top Score</span></div>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" onclick="filter('all')">All Candidates</button>
+  <button class="filter-btn" onclick="filter('accepted')">✅ Accepted</button>
+  <button class="filter-btn" onclick="filter('hold')">⏳ On Hold</button>
+  <button class="filter-btn" onclick="filter('rejected')">❌ Rejected</button>
+</div>
+
+<div class="cards">
+
+<div class="card" data-cat="accepted">
+  <div class="card-header">
+    <div class="rank">#1</div>
+    <div class="cinfo">
+      <div class="cname">Ahmed Ashraf</div>
+      <div class="cpos">📋 Machine Learning Engineer (Mid-Level)</div>
+    </div>
+    <div class="badges">
+      <div class="score-ring" style="border-color:#16a34a;color:#16a34a">
+        <span class="snum">78</span>
+        <span class="sdenom">/100</span>
+      </div>
+      <span class="vtag" style="color:#2563eb;border-color:#2563eb">Good Fit</span>
+      <span class="rec-tag" style="background:#dcfce7;color:#166534">✅ Accepted</span>
+      <span class="qual-tag qual-yes">✅ Qualified</span>
+    </div>
+  </div>
+
+  <div class="breakdown">
+        <div class="bar-row">
+          <span class="bar-lbl">Technical Skills</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#16a34a"></div></div>
+          <span class="bar-val">20/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Experience</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#16a34a"></div></div>
+          <span class="bar-val">15/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Education</span>
+          <div class="bar-track"><div class="bar-fill" style="width:100.0%;background:#16a34a"></div></div>
+          <span class="bar-val">25/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Projects</span>
+          <div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#16a34a"></div></div>
+          <span class="bar-val">18/25</span>
+        </div></div>
+
+  <div class="detail-grid">
+    <div class="dblock">
+      <h4>💪 Strengths</h4>
+      <ul><li>Strong Python skills</li><li>Experience with deep learning frameworks (TensorFlow and PyTorch)</li><li>Knowledge of model deployment and MLOps basics</li></ul>
+    </div>
+    <div class="dblock">
+      <h4>⚠️ Gaps</h4>
+      <ul><li>No experience with computer vision or NLP (only one area covered)</li></ul>
+    </div>
+  </div>
+
+  <div class="dblock full">
+    <h4>❓ Interview Questions</h4>
+    <ol><li>Can you walk us through your experience with deep learning frameworks? How do you decide which framework to use for a particular project?</li><li>How do you approach model interpretability and explainability in your projects?</li><li>What are some of the most challenging problems you've faced while working on machine learning projects, and how did you overcome them?</li></ol>
+  </div>
+
+  <div class="notes">
+    <h4>📝 Hiring Notes</h4>
+    <p>Consider highlighting Ahmed's strengths in Python and deep learning frameworks during the interview. Also, explore his experience with model deployment and MLOps basics to gauge his understanding of production-ready models.</p>
+  </div>
+
+  <div class="card-footer">
+    <span class="email-lbl">📧 ahmedashraf79200@gmail.com</span>
+    <a href="mailto:ahmedashraf79200@gmail.com?subject=Your%20Application%20for%20Machine%20Learning%20Engineer%20%28Mid-Level%29" class="email-btn">✉️ Send Email</a>
+  </div>
+</div>
+<div class="card" data-cat="hold">
+  <div class="card-header">
+    <div class="rank">#2</div>
+    <div class="cinfo">
+      <div class="cname">Ahmed Elsayed</div>
+      <div class="cpos">📋 Machine Learning Engineer (Mid-Level)</div>
+    </div>
+    <div class="badges">
+      <div class="score-ring" style="border-color:#2563eb;color:#2563eb">
+        <span class="snum">63</span>
+        <span class="sdenom">/100</span>
+      </div>
+      <span class="vtag" style="color:#2563eb;border-color:#2563eb">Good Fit</span>
+      <span class="rec-tag" style="background:#fef9c3;color:#854d0e">⏳ On Hold</span>
+      <span class="qual-tag qual-yes">✅ Qualified</span>
+    </div>
+  </div>
+
+  <div class="breakdown">
+        <div class="bar-row">
+          <span class="bar-lbl">Technical Skills</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#2563eb"></div></div>
+          <span class="bar-val">20/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Experience</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#2563eb"></div></div>
+          <span class="bar-val">15/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Education</span>
+          <div class="bar-track"><div class="bar-fill" style="width:40.0%;background:#2563eb"></div></div>
+          <span class="bar-val">10/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Projects</span>
+          <div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#2563eb"></div></div>
+          <span class="bar-val">18/25</span>
+        </div></div>
+
+  <div class="detail-grid">
+    <div class="dblock">
+      <h4>💪 Strengths</h4>
+      <ul><li>Python</li><li>TensorFlow</li><li>Keras</li><li>Scikit-learn</li></ul>
+    </div>
+    <div class="dblock">
+      <h4>⚠️ Gaps</h4>
+      <ul><li>Cloud platform experience (AWS/GCP/Azure)</li><li>Published research or open-source contributions</li></ul>
+    </div>
+  </div>
+
+  <div class="dblock full">
+    <h4>❓ Interview Questions</h4>
+    <ol><li>Can you walk us through your experience with cloud platforms? How do you stay up-to-date with the latest developments?</li><li>What are some of your most notable projects, and how did you contribute to their success?</li><li>How do you envision applying your skills in a real-world setting?</li></ol>
+  </div>
+
+  <div class="notes">
+    <h4>📝 Hiring Notes</h4>
+    <p>Consider inviting Mostafa for an interview to discuss his technical skills and potential gaps. Be prepared to provide more context on the company's cloud platform usage and research opportunities.</p>
+  </div>
+
+  <div class="card-footer">
+    <span class="email-lbl">📧 ahmedbinaltaha@gmail.com</span>
+    <a href="mailto:ahmedbinaltaha@gmail.com?subject=Your%20Application%20for%20Machine%20Learning%20Engineer%20%28Mid-Level%29" class="email-btn">✉️ Send Email</a>
+  </div>
+</div>
+<div class="card" data-cat="hold">
+  <div class="card-header">
+    <div class="rank">#3</div>
+    <div class="cinfo">
+      <div class="cname">Mostafa Ali</div>
+      <div class="cpos">📋 Machine Learning Engineer (Mid-Level)</div>
+    </div>
+    <div class="badges">
+      <div class="score-ring" style="border-color:#2563eb;color:#2563eb">
+        <span class="snum">61</span>
+        <span class="sdenom">/100</span>
+      </div>
+      <span class="vtag" style="color:#2563eb;border-color:#2563eb">Good Fit</span>
+      <span class="rec-tag" style="background:#fef9c3;color:#854d0e">⏳ On Hold</span>
+      <span class="qual-tag qual-yes">✅ Qualified</span>
+    </div>
+  </div>
+
+  <div class="breakdown">
+        <div class="bar-row">
+          <span class="bar-lbl">Technical Skills</span>
+          <div class="bar-track"><div class="bar-fill" style="width:80.0%;background:#2563eb"></div></div>
+          <span class="bar-val">20/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Experience</span>
+          <div class="bar-track"><div class="bar-fill" style="width:32.0%;background:#2563eb"></div></div>
+          <span class="bar-val">8/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Education</span>
+          <div class="bar-track"><div class="bar-fill" style="width:60.0%;background:#2563eb"></div></div>
+          <span class="bar-val">15/25</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-lbl">Projects</span>
+          <div class="bar-track"><div class="bar-fill" style="width:72.0%;background:#2563eb"></div></div>
+          <span class="bar-val">18/25</span>
+        </div></div>
+
+  <div class="detail-grid">
+    <div class="dblock">
+      <h4>💪 Strengths</h4>
+      <ul><li>Python</li><li>TensorFlow</li><li>Keras</li><li>Scikit-learn</li><li>NLTK</li><li>spaCy</li><li>OpenCV</li></ul>
+    </div>
+    <div class="dblock">
+      <h4>⚠️ Gaps</h4>
+      <ul><li>Cloud platform experience (AWS/GCP/Azure)</li><li>Published research or open-source contributions</li></ul>
+    </div>
+  </div>
+
+  <div class="dblock full">
+    <h4>❓ Interview Questions</h4>
+    <ol><li>Can you walk us through your experience with cloud platforms? How do you stay up-to-date with the latest developments?</li><li>What are some of your most notable projects, and how did you contribute to their success?</li><li>How do you envision applying your skills in a real-world setting?</li></ol>
+  </div>
+
+  <div class="notes">
+    <h4>📝 Hiring Notes</h4>
+    <p>Consider inviting Mostafa for an interview to discuss his technical skills and potential gaps. Be prepared to provide more context on the company's cloud platform usage and research opportunities.</p>
+  </div>
+
+  <div class="card-footer">
+    <span class="email-lbl">📧 mostafa79ali@gmail.com</span>
+    <a href="mailto:mostafa79ali@gmail.com?subject=Your%20Application%20for%20Machine%20Learning%20Engineer%20%28Mid-Level%29" class="email-btn">✉️ Send Email</a>
+  </div>
+</div>
+</div>
+
+<div class="page-footer">
+  Generated by Resume Screening System &nbsp;·&nbsp; Powered by CrewAI &nbsp;·&nbsp; 2026-07-01 00:23
+</div>
+
+<script>
+function filter(cat) {
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  event.target.classList.add("active");
+  document.querySelectorAll(".card").forEach(card => {
+    if (cat === "all" || card.dataset.cat === cat) {
+      card.classList.remove("hidden");
+    } else {
+      card.classList.add("hidden");
+    }
+  });
+}
+</script>
+</body>
+</html>

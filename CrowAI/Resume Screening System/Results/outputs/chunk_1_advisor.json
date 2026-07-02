@@ -1,0 +1,29 @@
+[
+  {
+    "candidate_name": "Ahmed Ashraf",
+    "email": "ahmedashraf79200@gmail.com",
+    "total_score": 78,
+    "score_breakdown": {
+      "technical_skills": 20,
+      "experience_level": 15,
+      "education_credentials": 25,
+      "projects_portfolio": 18
+    },
+    "fit_verdict": "Good Fit",
+    "strengths": [
+      "Strong Python skills",
+      "Experience with deep learning frameworks (TensorFlow and PyTorch)",
+      "Knowledge of model deployment and MLOps basics"
+    ],
+    "gaps": [
+      "No experience with computer vision or NLP (only one area covered)"
+    ],
+    "recommendation": "Advance to Interview",
+    "suggested_interview_questions": [
+      "Can you walk us through your experience with deep learning frameworks? How do you decide which framework to use for a particular project?",
+      "How do you approach model interpretability and explainability in your projects?",
+      "What are some of the most challenging problems you've faced while working on machine learning projects, and how did you overcome them?"
+    ],
+    "hiring_notes": "Consider highlighting Ahmed's strengths in Python and deep learning frameworks during the interview. Also, explore his experience with model deployment and MLOps basics to gauge his understanding of production-ready models."
+  }
+]

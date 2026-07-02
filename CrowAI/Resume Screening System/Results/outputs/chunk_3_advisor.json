@@ -1,0 +1,34 @@
+[
+  {
+    "candidate_name": "Mostafa Ali",
+    "email": "mostafa79ali@gmail.com",
+    "total_score": 61,
+    "score_breakdown": {
+      "technical_skills": 20,
+      "experience_level": 8,
+      "education_credentials": 15,
+      "projects_portfolio": 18
+    },
+    "fit_verdict": "Good Fit",
+    "strengths": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "NLTK",
+      "spaCy",
+      "OpenCV"
+    ],
+    "gaps": [
+      "Cloud platform experience (AWS/GCP/Azure)",
+      "Published research or open-source contributions"
+    ],
+    "recommendation": "Consider with Reservations",
+    "suggested_interview_questions": [
+      "Can you walk us through your experience with cloud platforms? How do you stay up-to-date with the latest developments?",
+      "What are some of your most notable projects, and how did you contribute to their success?",
+      "How do you envision applying your skills in a real-world setting?"
+    ],
+    "hiring_notes": "Consider inviting Mostafa for an interview to discuss his technical skills and potential gaps. Be prepared to provide more context on the company's cloud platform usage and research opportunities."
+  }
+]

@@ -1,0 +1,32 @@
+Position: Machine Learning Engineer (Mid-Level)
+Company: TechStartup Egypt
+Location: Cairo, Egypt (Hybrid)
+Salary Range: $30,000 - $60,000/year
+
+JOB DESCRIPTION:
+We are looking for a passionate ML Engineer to join our growing AI team. You will build and deploy machine learning models that power our core products.
+
+REQUIRED QUALIFICATIONS:
+- Bachelor's degree in Computer Science, AI, or related field
+- 1-4 years of ML/AI experience
+- Strong Python skills
+- Experience with deep learning frameworks (TensorFlow or PyTorch)
+- Knowledge of model deployment and MLOps basics
+- Experience with computer vision OR NLP (at least one)
+
+NICE TO HAVE:
+- Experience with LLMs or generative AI
+- Cloud platform experience (AWS/GCP/Azure)
+- Published research or open-source contributions
+- Docker/Kubernetes experience
+
+RESPONSIBILITIES:
+- Design, train, and deploy ML models for production
+- Collaborate with product and data teams
+- Write clean, maintainable code with proper documentation
+- Monitor model performance and implement improvements
+
+CULTURE FIT:
+- Team player, good communicator
+- Eager to learn and grow
+- Practical problem-solver

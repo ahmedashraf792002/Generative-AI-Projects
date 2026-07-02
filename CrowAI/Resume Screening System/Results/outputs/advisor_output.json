@@ -1,0 +1,89 @@
+[
+  {
+    "candidate_name": "Ahmed Ashraf",
+    "email": "ahmedashraf79200@gmail.com",
+    "total_score": 78,
+    "score_breakdown": {
+      "technical_skills": 20,
+      "experience_level": 15,
+      "education_credentials": 25,
+      "projects_portfolio": 18
+    },
+    "fit_verdict": "Good Fit",
+    "strengths": [
+      "Strong Python skills",
+      "Experience with deep learning frameworks (TensorFlow and PyTorch)",
+      "Knowledge of model deployment and MLOps basics"
+    ],
+    "gaps": [
+      "No experience with computer vision or NLP (only one area covered)"
+    ],
+    "recommendation": "Advance to Interview",
+    "suggested_interview_questions": [
+      "Can you walk us through your experience with deep learning frameworks? How do you decide which framework to use for a particular project?",
+      "How do you approach model interpretability and explainability in your projects?",
+      "What are some of the most challenging problems you've faced while working on machine learning projects, and how did you overcome them?"
+    ],
+    "hiring_notes": "Consider highlighting Ahmed's strengths in Python and deep learning frameworks during the interview. Also, explore his experience with model deployment and MLOps basics to gauge his understanding of production-ready models.",
+    "position_applied": "Machine Learning Engineer (Mid-Level)",
+    "qualified": true,
+    "accepted": true
+  },
+  {
+    "candidate_name": "Ahmed Elsayed",
+    "email": "",
+    "total_score": 0,
+    "score_breakdown": {
+      "technical_skills": 0,
+      "experience_level": 0,
+      "education_credentials": 0,
+      "projects_portfolio": 0
+    },
+    "fit_verdict": "Poor Fit",
+    "strengths": [],
+    "gaps": [
+      "Error — manual review required"
+    ],
+    "recommendation": "Manual Review Required",
+    "suggested_interview_questions": [],
+    "hiring_notes": "Error during processing. Please review manually.",
+    "position_applied": "Machine Learning Engineer (Mid-Level)",
+    "qualified": false,
+    "accepted": false
+  },
+  {
+    "candidate_name": "Mostafa Ali",
+    "email": "mostafa79ali@gmail.com",
+    "total_score": 61,
+    "score_breakdown": {
+      "technical_skills": 20,
+      "experience_level": 8,
+      "education_credentials": 15,
+      "projects_portfolio": 18
+    },
+    "fit_verdict": "Good Fit",
+    "strengths": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "NLTK",
+      "spaCy",
+      "OpenCV"
+    ],
+    "gaps": [
+      "Cloud platform experience (AWS/GCP/Azure)",
+      "Published research or open-source contributions"
+    ],
+    "recommendation": "Consider with Reservations",
+    "suggested_interview_questions": [
+      "Can you walk us through your experience with cloud platforms? How do you stay up-to-date with the latest developments?",
+      "What are some of your most notable projects, and how did you contribute to their success?",
+      "How do you envision applying your skills in a real-world setting?"
+    ],
+    "hiring_notes": "Consider inviting Mostafa for an interview to discuss his technical skills and potential gaps. Be prepared to provide more context on the company's cloud platform usage and research opportunities.",
+    "position_applied": "Machine Learning Engineer (Mid-Level)",
+    "qualified": true,
+    "accepted": false
+  }
+]

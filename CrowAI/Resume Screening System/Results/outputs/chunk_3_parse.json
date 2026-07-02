@@ -1,0 +1,60 @@
+[
+  {
+    "full_name": "Mostafa Ali",
+    "email": "mostafa79ali@gmail.com",
+    "contact_info": "+201009594720, radwasaid1312",
+    "education": [
+      {
+        "degree": "Bachelor's degree",
+        "university": "Banha University faculty of Computer and Artificial intelligence",
+        "gpa": 3.3
+      }
+    ],
+    "years_of_experience": 0,
+    "technical_skills": [
+      "Python",
+      "C++",
+      "Java",
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "NLTK",
+      "spaCy",
+      "OpenCV",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn"
+    ],
+    "work_experience": [
+      {
+        "role": null,
+        "company": null,
+        "bullets": [
+          ""
+        ]
+      }
+    ],
+    "notable_projects": [
+      {
+        "name": "Alzheimer’s Detection with Generative AI",
+        "summary": "Developed a deep learning model for classifying MRI images to detect Alzheimer’s disease."
+      },
+      {
+        "name": "KC_House",
+        "summary": "Developed a machine learning model to predict the prices of the house and everything in it."
+      },
+      {
+        "name": "NLP project (Speech Recognition)",
+        "summary": "Developed a speech recognition system using deep learning models to accurately transcribe spoken language into text."
+      }
+    ],
+    "certifications_publications": [
+      {
+        "certificate": "AI / ML Engineer",
+        "course": "information technology consultation and research center (ITCRC)"
+      }
+    ],
+    "red_flags": []
+  }
+]

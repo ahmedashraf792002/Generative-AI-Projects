@@ -1,0 +1,19 @@
+# ── Core ─────────────────────────────────────────
+crewai>=0.51.0
+python-dotenv
+
+# ── LLM Providers ────────────────────────────────
+openai
+langchain-openai
+langchain-ollama
+
+# ── Resume File Loaders ───────────────────────────
+langchain-community
+pymupdf          # PDF loader
+unstructured     # DOCX / DOC loader
+
+# ── Data validation (agent output models) ─────────
+pydantic>=2.0
+
+# ── GUI (already built into Python — no install needed) ──
+# tkinter  ← stdlib, no pip install required

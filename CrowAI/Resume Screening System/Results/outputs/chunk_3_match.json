@@ -1,0 +1,25 @@
+[
+  {
+    "score_breakdown": {
+      "technical_skills": 20,
+      "experience_level": 8,
+      "education_credentials": 15,
+      "projects_portfolio": 18
+    },
+    "total_score": 61,
+    "strengths": [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "Scikit-learn",
+      "NLTK",
+      "spaCy",
+      "OpenCV"
+    ],
+    "gaps": [
+      "Cloud platform experience (AWS/GCP/Azure)",
+      "Published research or open-source contributions"
+    ],
+    "fit_verdict": "Good Fit"
+  }
+]

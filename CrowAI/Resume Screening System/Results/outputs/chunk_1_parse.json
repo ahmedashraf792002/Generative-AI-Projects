@@ -1,0 +1,75 @@
+[
+  {
+    "full_name": "Ahmed Ashraf",
+    "email": "ahmedashraf79200@gmail.com",
+    "contact_info": "+201097436928, ahmedashraf79200@gmail.com, Github, Portfolio, LinkedIn, Kaggle",
+    "education": [
+      {
+        "degree": "Bachelor of Computer Science and Artificial Intelligence",
+        "university": "Benha University, Department of Artificial Intelligence",
+        "gpa": 3.76
+      }
+    ],
+    "years_of_experience": 2,
+    "technical_skills": [
+      "Python",
+      "C++",
+      "Java",
+      "TensorFlow",
+      "Keras",
+      "PyTorch",
+      "Scikit-learn",
+      "NLTK",
+      "SpaCy",
+      "Transformers (Hugging Face)",
+      "LangChain",
+      "LlamaIndex",
+      "OpenCV",
+      "Ultralytics YOLO",
+      "Pandas",
+      "NumPy",
+      "SciPy",
+      "SQL",
+      "Matplotlib",
+      "Seaborn",
+      "Plotly",
+      "MLflow",
+      "CML",
+      "Streamlit",
+      "Flask",
+      "FastAPI"
+    ],
+    "work_experience": [
+      {
+        "role": "AI & ML Engineer Intern",
+        "company": "Electropi",
+        "bullets": [
+          "Applied deep learning and NLP techniques for sentiment analysis, medical image diagnosis, and disaster tweet classification.",
+          "Developed machine learning models for customer segmentation and personalized marketing using supervised and unsupervised learning.",
+          "Automated ML workflows and performed exploratory data analysis to extract actionable insights and improve decision-making."
+        ]
+      }
+    ],
+    "notable_projects": [
+      {
+        "name": "Explained ML for Early Liver Disease Detection (FLD & HBV)",
+        "summary": "Investigates Explainable AI (XAI) techniques such as SHAP, LIME, and Anchors for diagnosing Fatty Liver Disease (FLD) and Hepatitis B (HBV), focusing on model interpretability in medical diagnostics."
+      },
+      {
+        "name": "ML-Based Anomaly Detection in Healthcare Monitoring (Survey)",
+        "summary": "Explores machine learning-based anomaly detection in healthcare monitoring systems using Wireless Sensor Networks (WSNs) and IoT. It reviews supervised, unsupervised, and hybrid approaches such as autoencoders with XGBoost for detecting anomalies in physiological data."
+      }
+    ],
+    "certifications_publications": [
+      {
+        "name": "Explained ML for Early Liver Disease Detection (FLD & HBV)",
+        "summary": "Investigates Explainable AI (XAI) techniques such as SHAP, LIME, and Anchors for diagnosing Fatty Liver Disease (FLD) and Hepatitis B (HBV), focusing on model interpretability in medical diagnostics."
+      },
+      {
+        "name": "ML-Based Anomaly Detection in Healthcare Monitoring (Survey)",
+        "summary": "Explores machine learning-based anomaly detection in healthcare monitoring systems using Wireless Sensor Networks (WSNs) and IoT. It reviews supervised, unsupervised, and hybrid approaches such as autoencoders with XGBoost for detecting anomalies in physiological data."
+      }
+    ],
+    "red_flags": []
+  }
+]
